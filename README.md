@@ -21,10 +21,11 @@ A modern Android application for browsing, searching, and managing your favorite
 
 ## Screenshots
 
-<!-- Add your screenshots here -->
-<!-- ![Home Screen](screenshots/home.png) -->
-<!-- ![Movie Details](screenshots/details.png) -->
-<!-- ![Search](screenshots/search.png) -->
+<div align="center">
+  <img src="screenshots/Home.png" width="270" alt="Home Screen"/>
+  <img src="screenshots/Favorites.png" width="270" alt="Movie List"/>
+  <img src="screenshots/Page.png" width="270" alt="Movie Details"/>
+</div>
 
 ## Architecture
 
@@ -60,58 +61,64 @@ This project follows **Clean Architecture** with clear separation into three lay
 
 ### Design Patterns
 
-| Pattern | Implementation |
-|---------|----------------|
-| **MVVM** | ViewModels with StateFlow for reactive UI state |
-| **Repository** | Abstract data sources behind interfaces |
-| **Dependency Injection** | Hilt for compile-time DI |
-| **Mapper** | DTO ↔ Domain Model ↔ Entity conversions |
-| **Sealed Classes** | Type-safe navigation routes and UI states |
-| **Offline-First** | Cache-first with network fallback |
+| Pattern                  | Implementation                                  |
+| ------------------------ | ----------------------------------------------- |
+| **MVVM**                 | ViewModels with StateFlow for reactive UI state |
+| **Repository**           | Abstract data sources behind interfaces         |
+| **Dependency Injection** | Hilt for compile-time DI                        |
+| **Mapper**               | DTO ↔ Domain Model ↔ Entity conversions         |
+| **Sealed Classes**       | Type-safe navigation routes and UI states       |
+| **Offline-First**        | Cache-first with network fallback               |
 
 ## Tech Stack
 
 ### Core
-| Technology | Version | Purpose |
-|------------|---------|---------|
-| Kotlin | 2.0.0 | Programming language |
-| Android SDK | 29 - 35 | Target platforms |
+
+| Technology      | Version        | Purpose                  |
+| --------------- | -------------- | ------------------------ |
+| Kotlin          | 2.0.0          | Programming language     |
+| Android SDK     | 29 - 35        | Target platforms         |
 | Jetpack Compose | BOM 2024.12.01 | Declarative UI framework |
-| Material3 | Latest | Design system |
+| Material3       | Latest         | Design system            |
 
 ### Architecture Components
-| Library | Version | Purpose |
-|---------|---------|---------|
-| Hilt | 2.52 | Dependency injection |
-| Navigation Compose | 2.8.5 | Type-safe navigation |
-| Lifecycle ViewModel | Latest | UI state management |
-| Room | 2.6.1 | Local database |
+
+| Library             | Version | Purpose              |
+| ------------------- | ------- | -------------------- |
+| Hilt                | 2.52    | Dependency injection |
+| Navigation Compose  | 2.8.5   | Type-safe navigation |
+| Lifecycle ViewModel | Latest  | UI state management  |
+| Room                | 2.6.1   | Local database       |
 
 ### Networking
-| Library | Version | Purpose |
-|---------|---------|---------|
-| Retrofit | 2.11.0 | REST API client |
-| OkHttp | 4.12.0 | HTTP client & logging |
-| Gson | 2.11.0 | JSON serialization |
+
+| Library  | Version | Purpose               |
+| -------- | ------- | --------------------- |
+| Retrofit | 2.11.0  | REST API client       |
+| OkHttp   | 4.12.0  | HTTP client & logging |
+| Gson     | 2.11.0  | JSON serialization    |
 
 ### Async & Reactive
-| Library | Version | Purpose |
-|---------|---------|---------|
-| Kotlin Coroutines | 1.9.0 | Asynchronous programming |
-| StateFlow | - | Reactive state management |
+
+| Library           | Version | Purpose                   |
+| ----------------- | ------- | ------------------------- |
+| Kotlin Coroutines | 1.9.0   | Asynchronous programming  |
+| StateFlow         | -       | Reactive state management |
 
 ### UI & Media
-| Library | Version | Purpose |
-|---------|---------|---------|
-| Coil | 2.7.0 | Image loading |
-| Palette | 1.0.0 | Color extraction |
-| Kotlin Serialization | 1.7.3 | Type-safe route arguments |
+
+| Library              | Version | Purpose                   |
+| -------------------- | ------- | ------------------------- |
+| Coil                 | 2.7.0   | Image loading             |
+| Palette              | 1.0.0   | Color extraction          |
+| Kotlin Serialization | 1.7.3   | Type-safe route arguments |
 
 ### Build Tools
-| Tool | Version |
-|------|---------|
-| Android Gradle Plugin | 8.8.0 |
-| KSP | 2.0.0-1.0.24 |
+
+| Tool                   | Version            |
+| ---------------------- | ------------------ |
+| Android Gradle Plugin  | 8.8.0              |
+| KSP                    | 2.0.0-1.0.24       |
 | Gradle Version Catalog | libs.versions.toml |
 
 ## Project Structure
@@ -191,16 +198,16 @@ This app uses [The Movie Database (TMDB) API](https://www.themoviedb.org/documen
 
 ### Endpoints Used
 
-| Endpoint | Description |
-|----------|-------------|
-| `GET /movie/popular` | Popular movies |
+| Endpoint                 | Description           |
+| ------------------------ | --------------------- |
+| `GET /movie/popular`     | Popular movies        |
 | `GET /movie/now_playing` | Currently in theaters |
-| `GET /movie/top_rated` | Highest rated movies |
-| `GET /movie/upcoming` | Coming soon |
-| `GET /movie/{id}` | Movie details |
-| `GET /search/movie` | Search by query |
-| `GET /discover/movie` | Filter by genre |
-| `GET /genre/movie/list` | Genre catalog |
+| `GET /movie/top_rated`   | Highest rated movies  |
+| `GET /movie/upcoming`    | Coming soon           |
+| `GET /movie/{id}`        | Movie details         |
+| `GET /search/movie`      | Search by query       |
+| `GET /discover/movie`    | Filter by genre       |
+| `GET /genre/movie/list`  | Genre catalog         |
 
 ## Getting Started
 
@@ -214,6 +221,7 @@ This app uses [The Movie Database (TMDB) API](https://www.themoviedb.org/documen
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/moviedatabase.git
    cd moviedatabase
@@ -222,11 +230,13 @@ This app uses [The Movie Database (TMDB) API](https://www.themoviedb.org/documen
 2. **Add your TMDB API key**
 
    Open `app/build.gradle.kts` and replace the API key:
+
    ```kotlin
    buildConfigField("String", "TMDB_API_KEY", "\"your_api_key_here\"")
    ```
 
 3. **Build and run**
+
    ```bash
    ./gradlew assembleDebug
    ```
@@ -304,3 +314,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <p align="center">
   Made with Kotlin and Jetpack Compose
 </p>
+
